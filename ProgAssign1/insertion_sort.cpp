@@ -27,7 +27,7 @@ void Insertion_Sort::start_sort(vector<int> unsorted)
 void Insertion_Sort::print()
 {
   for(int i = 0; i < vec.size(); i++)
-    cout << vec[i] << " ";
+    cout << vec.at(i) << " ";
   cout << endl;
 }
 
@@ -36,14 +36,14 @@ void Insertion_Sort::insertion_sort()
   int key, j = 0; 
   for(int i = 1; i < vec.size(); i++)
   {
-    key = vec[i];
+    key = vec.at(i);
     j = i - 1;
-    while(j > -1 && vec[j] > key)
+    while(j > -1 && vec.at(j) > key)
     {
-      vec[j + 1] = vec[j];
+      vec.at(j + 1) = vec.at(j);
       j = j - 1;
     }
-    vec[j + 1] = key;
+    vec.at(j + 1) = key;
   }
 }
 

@@ -183,28 +183,6 @@ int main(int argc, char** argv)
   else
     sortMaster(vec, flags, size);
 
-//Potentially put the following code in sortMaster, since that is supposed to be the root for
-//sort functions
-
-
-/*
-  if(list_flag)
-    cout << "List flag set\n";
-  if(print_flag)
-    cout << "Print flag is set\n";
-
-  if(optind < argc)
-  {
-    cout << "non-option ARGV-elements:\n";
-    while(optind < argc)
-      cout << " " << argv[optind++] << " ";
-    cout << '\n';
-  }
-*/
-  for(auto& item: vec)
-    cout << item << " ";
-  cout << endl;
-
   return 0;
 }
 

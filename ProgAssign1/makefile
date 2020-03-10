@@ -1,3 +1,6 @@
+graphs:
+	python3 ./graphs.py
+
 sort: sort.o insertion_sort.o merge_sort.o heap_sort.o counting_sort.o quicksort.o radix_sort.o bucket_sort.o
 	g++ -std=c++11 -o sort sort.o insertion_sort.o merge_sort.o heap_sort.o counting_sort.o quicksort.o radix_sort.o bucket_sort.o
 
