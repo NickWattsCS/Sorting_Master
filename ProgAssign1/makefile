@@ -1,32 +1,42 @@
 graphs:
 	python3 ./graphs.py
 
-sort: sort.o insertion_sort.o merge_sort.o heap_sort.o counting_sort.o quicksort.o radix_sort.o bucket_sort.o
-	g++ -std=c++11 -o sort sort.o insertion_sort.o merge_sort.o heap_sort.o counting_sort.o quicksort.o radix_sort.o bucket_sort.o
+sort: ./tmp/sort.o ./tmp/insertion_sort.o ./tmp/merge_sort.o ./tmp/heap_sort.o ./tmp/counting_sort.o ./tmp/quicksort.o ./tmp/radix_sort.o ./tmp/bucket_sort.o
+	g++ -std=c++11 -o sort ./tmp/sort.o ./tmp/insertion_sort.o ./tmp/merge_sort.o ./tmp/heap_sort.o ./tmp/counting_sort.o ./tmp/quicksort.o ./tmp/radix_sort.o ./tmp/bucket_sort.o
+	mv ./sort ./bin
+	mv ./src/test.sh ./bin
 
-sort.o: sort.cpp insertion_sort.h merge_sort.h heap_sort.h counting_sort.h quicksort.h radix_sort.h bucket_sort.h
-	g++ -std=c++11 -c sort.cpp
+sort.o: ./src/sort.cpp ./src/insertion_sort.h ./src/merge_sort.h ./src/heap_sort.h ./src/counting_sort.h ./src/quicksort.h ./src/radix_sort.h ./src/bucket_sort.h
+	g++ -std=c++11 -c ./src/sort.cpp
+	mv sort.o ./tmp
 
-bucket_sort.o: bucket_sort.cpp bucket_sort.h
-	g++ -std=c++11 -c bucket_sort.cpp
+bucket_sort.o: ./src/bucket_sort.cpp ./src/bucket_sort.h
+	g++ -std=c++11 -c ./src/bucket_sort.cpp
+	mv bucket_sort.o ./tmp
 
-radix_sort.o: radix_sort.cpp radix_sort.h
-	g++ -std=c++11 -c radix_sort.cpp
+radix_sort.o: ./src/radix_sort.cpp ./src/radix_sort.h
+	g++ -std=c++11 -c ./src/radix_sort.cpp
+	mv radix_sort.o ./tmp
 
-quicksort.o: quicksort.cpp quicksort.h
-	g++ -std=c++11 -c quicksort.cpp
+quicksort.o: ./src/quicksort.cpp ./src/quicksort.h
+	g++ -std=c++11 -c ./src/quicksort.cpp
+	mv quicksort.o ./tmp
 
-counting_sort.o: counting_sort.cpp counting_sort.h
-	g++ -std=c++11 -c counting_sort.cpp
+counting_sort.o: ./src/counting_sort.cpp ./src/counting_sort.h
+	g++ -std=c++11 -c ./src/counting_sort.cpp
+	mv counting_sort.o ./tmp
 
-heap_sort.o: heap_sort.cpp heap_sort.h
-	g++ -std=c++11 -c heap_sort.cpp
+heap_sort.o: ./src/heap_sort.cpp ./src/heap_sort.h
+	g++ -std=c++11 -c ./src/heap_sort.cpp
+	mv heap_sort.o ./tmp
 
-merge_sort.o: merge_sort.cpp merge_sort.h
-	g++ -std=c++11 -c merge_sort.cpp
+merge_sort.o: ./src/merge_sort.cpp ./src/merge_sort.h
+	g++ -std=c++11 -c ./src/merge_sort.cpp
+	mv merge_sort.o ./tmp
 
-insertion_sort.o: insertion_sort.cpp insertion_sort.h
-	g++ -std=c++11 -c insertion_sort.cpp
+insertion_sort.o: ./src/insertion_sort.cpp ./src/insertion_sort.h
+	g++ -std=c++11 -c ./src/insertion_sort.cpp
+	mv insertion_sort.o ./tmp
 
 clean:
 	rm *.o sort
