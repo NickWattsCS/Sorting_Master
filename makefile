@@ -1,10 +1,11 @@
 graphs:
 	python3 ./graphs.py
 
-sort: ./tmp/sort.o ./tmp/insertion_sort.o ./tmp/merge_sort.o ./tmp/heap_sort.o ./tmp/counting_sort.o ./tmp/quicksort.o ./tmp/radix_sort.o ./tmp/bucket_sort.o
-	g++ -std=c++11 -o sort ./tmp/sort.o ./tmp/insertion_sort.o ./tmp/merge_sort.o ./tmp/heap_sort.o ./tmp/counting_sort.o ./tmp/quicksort.o ./tmp/radix_sort.o ./tmp/bucket_sort.o
-	mv ./sort ./bin
-	mv ./src/test.sh ./bin
+test:
+	./bin/test.sh
+
+clean:
+	rm ./tmp/*.o ./bin/sort
 
 sort.o: ./src/sort.cpp ./src/insertion_sort.h ./src/merge_sort.h ./src/heap_sort.h ./src/counting_sort.h ./src/quicksort.h ./src/radix_sort.h ./src/bucket_sort.h
 	g++ -std=c++11 -c ./src/sort.cpp
@@ -38,5 +39,7 @@ insertion_sort.o: ./src/insertion_sort.cpp ./src/insertion_sort.h
 	g++ -std=c++11 -c ./src/insertion_sort.cpp
 	mv insertion_sort.o ./tmp
 
-clean:
-	rm *.o sort
+sort: ./tmp/sort.o ./tmp/insertion_sort.o ./tmp/merge_sort.o ./tmp/heap_sort.o ./tmp/counting_sort.o ./tmp/quicksort.o ./tmp/radix_sort.o ./tmp/bucket_sort.o
+	g++ -std=c++11 -o sort ./tmp/sort.o ./tmp/insertion_sort.o ./tmp/merge_sort.o ./tmp/heap_sort.o ./tmp/counting_sort.o ./tmp/quicksort.o ./tmp/radix_sort.o ./tmp/bucket_sort.o
+	mv ./sort ./bin
+

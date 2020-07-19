@@ -205,10 +205,22 @@ void initMapFlags(map<string, bool>& flags)
 
 void usage()
 {
-  cout << "How to use the command line arguments for 'sort':" << endl;
-  cout << "./sort [--help] | [ [ [-i] | [-m] | [-h] | [-q] | [-c] | [-r] | [-b] ] [-v | --verbose] [ [-n num | --size num] | [--list textfile] ] ]";
-  cout << endl;
-  cout << "num > 0, textfile != NULL" << endl;
+  cout << "\n./sort [--help] [[-i] [-m] [-h] [-q] [-c] [-r] [-b]\n\t";
+  cout << "[-v | --verbose] [-n N | --size N | --list file]]\n\n";
+  cout << "Support functionality:\n\t";
+  cout << "--help: shows this usage text\n\t";
+  cout << "-v | --verbose: print array flag\n\n";
+  cout << "Sort control functionality:\n\t";
+  cout << "-i: insertion sort flag\n\t";
+  cout << "-m: merge sort flag\n\t";
+  cout << "-h: heap sort flag\n\t";
+  cout << "-q: quicksort flag\n\t";
+  cout << "-c: counting sort flag\n\t";
+  cout << "-r: radix sort flag\n\t";
+  cout << "-b: bucket sort flag\n\t";
+  cout << "-n N| --size N | --list file: array input flag, where\n\t\t";
+  cout << "N is a number greater than 0, and file is a text file\n\t\t";
+  cout << "of space-separated numbers sort\n\n";
 }
 
 bool flagCheck(map<string, bool>& flags)

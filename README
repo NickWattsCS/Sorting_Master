@@ -9,52 +9,48 @@ This document explains how to use the C++ program "sort", and the python script 
 COMPONENTS
 ---------
 
-1) The main file (sort.cpp) that contains the written code to parse the command line 
-	and conduct the different types of sorts.
+1) README: This file that tells you how to execute the program.
 
-2) The class files for each type of sort which contain methods and members to
-	conduct each respective sort.
+2) makefile: A configuration file that lets you use the src files to make executables and run scripts
 
-3) The python script (graphs.py) that creates the plots for each of the given 11 input sizes.
+3) /src directory: A directory that contains all header and class files.
 
-4) The makefile that compiles the code together, whereupon the sort executable can be
-	launched with the following options.
+4) /tmp directory: A directory that contains all object files.
 
-	sort --help | [ -i | -m | -h | -q | -c | -r | -b ] [-v | --verbose] [ [-n num | --size num] | [--list file] ]  
+5) /bin directory: A directory that contains all executables.
 
-	-i: insert sort
-	-m: merge sort
-	-h: heap sort
-	-q: quicksort
-	-c: counting sort
-	-r: radix sort
-	-b: bucket sort
-	-v or --verbose: prints the final, sorted array
-        -n or --size: takes in a number where num > 0 and creates a vector with the same number of elements
-		where each element is a randomly generated number
-	--list: opens the file specified and places the numbers therein into a vector. In the file, numbers must
- 		be greater than or equal to zero, and separated by spaces.
+ACTIONS OF THE MAKEFILE
+-----------------------
 
-	The makefile also allows the user to efficiently run the graphs python script as long as the user
-		has previously compiled the "sort" executible.
+1) make sort: compiles the sort program
 
-5) A text file called "list.txt" that contains a sample of 13 integers, which can be used on any of the sorts
-	except bucket sort. This was mainly used to test functionality of the different sorts during testing,
-	and now mainly serves to demonstrate the function of the "--list" flag.
+2) make test: tests the functionality of each sort to make sure it effectively sorts a sample array of 100 elements 1000 times.
 
-6) This README to explain how to use the executibles provided in this module.
+3) make graphs: shows the time complexity of each sort as input increases
 
-COMPILATION
------------
-To compile the sort program, type "make sort" into the command line, and hit enter.
+4) make clean: cleans the tmp file and erases the sort executable.
 
-The graphs script is interpreted at run time by typing "make graphs", after compiling
-	the sort executible.
+EXECUTING THE SORT PROGRAM
+--------------------------
 
-EXECUTION
----------
+./sort [--help] [[-i] [-m] [-h] [-q] [-c] [-r] [-b] 
+	[-v | --verbose] [-n N | --size N | --list file]]
 
-sort
+Support functionality:
+	--help: shows this usage text
+	-v | --verbose: print array flag
+
+Sort control functionality:
+	-i: insertion sort flag
+	-m: merge sort flag	
+	-h: heap sort flag
+	-q: quicksort flag
+	-c: counting sort flag
+	-r: radix sort flag
+	-b: bucket sort flag
+	-n N| --size N | --list file: array input flag, where 
+		N is a number greater than 0, and file is a text file 
+		of space-separated numbers sort
 ----
 To start the sort program in the command line, type "./sort," the sort flag you wish to use--as explained
 	above in the components section--and the method of vector population that you prefer. One of the 
