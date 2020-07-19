@@ -78,3 +78,8 @@ If the sort executible has been compiled, then typing "make graphs" in the comma
 	500, 1000, 5000, 10000, 50000, 100000, 500000, and 1000000--and records the time it takes to
 	complete each, before sending all inputs and their running times into a graphing object provided
 	by matplotlib.
+
+KNOWN BUGS
+----------
+Running 'make sort' without the necessary dependencies causes the recipe to fail. Each object-file dependency 
+	must be created with the make file first if all the object files are not already in the tmp folder.
