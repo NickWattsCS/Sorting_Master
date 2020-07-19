@@ -1,10 +1,7 @@
 Nicholas Watts
 Latest Version release: July 18, 2020
 
-NOTE: This makefile has not been fully updated since the latest commit, so this information is not accurate. 
-I will update the makefile shortly.
-
-This document explains how to use the C++ program "sort", and the python script "graphs".
+This document explains how to use the C++ program "sort", the testing shell script, and the python script "graphs".
 
 COMPONENTS
 ---------
@@ -70,8 +67,8 @@ The flags "-v" and "--verbose" are optional, and allow the user to print out the
 
 To remove all object files and the executable, type "make clean" in the command line.
 
-graphs
-------
+EXECUTING THE GRAPHING SCRIPT
+-----------------------------
 For the graphs script to work correctly, the sort executible must be made first. This can be created by
 	typing "make sort" into the command line. Otherwise, the python interpreter will complain that the
 	sort executible does not exist.
