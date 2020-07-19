@@ -1,0 +1,85 @@
+Nicholas Watts
+Latest Version release: March 9, 2020
+
+
+This document explains how to use the C++ program "sort", and the python script "graphs".
+
+COMPONENTS
+---------
+
+1) The main file (sort.cpp) that contains the written code to parse the command line 
+	and conduct the different types of sorts.
+
+2) The class files for each type of sort which contain methods and members to
+	conduct each respective sort.
+
+3) The python script (graphs.py) that creates the plots for each of the given 11 input sizes.
+
+4) The makefile that compiles the code together, whereupon the sort executable can be
+	launched with the following options.
+
+	sort --help | [ -i | -m | -h | -q | -c | -r | -b ] [-v | --verbose] [ [-n num | --size num] | [--list file] ]  
+
+	-i: insert sort
+	-m: merge sort
+	-h: heap sort
+	-q: quicksort
+	-c: counting sort
+	-r: radix sort
+	-b: bucket sort
+	-v or --verbose: prints the final, sorted array
+        -n or --size: takes in a number where num > 0 and creates a vector with the same number of elements
+		where each element is a randomly generated number
+	--list: opens the file specified and places the numbers therein into a vector. In the file, numbers must
+ 		be greater than or equal to zero, and separated by spaces.
+
+	The makefile also allows the user to efficiently run the graphs python script as long as the user
+		has previously compiled the "sort" executible.
+
+5) A text file called "list.txt" that contains a sample of 13 integers, which can be used on any of the sorts
+	except bucket sort. This was mainly used to test functionality of the different sorts during testing,
+	and now mainly serves to demonstrate the function of the "--list" flag.
+
+6) This README to explain how to use the executibles provided in this module.
+
+COMPILATION
+-----------
+To compile the sort program, type "make sort" into the command line, and hit enter.
+
+The graphs script is interpreted at run time by typing "make graphs", after compiling
+	the sort executible.
+
+EXECUTION
+---------
+
+sort
+----
+To start the sort program in the command line, type "./sort," the sort flag you wish to use--as explained
+	above in the components section--and the method of vector population that you prefer. One of the 
+	following arguments must be provided, or the executable will not run:
+
+	1) To generate a randomized vector, type "--size" or "-n" followed by an unsigned number. This will
+		create an unsorted vector of size n, which is then sorted but the sort specified in the command
+		line arguments. If a sort is not specified, or if more than one sort is provided, then the
+		executible will not run. If the "--list" flag is placed along with the "--size" or "-n" flags, then
+		the executable will not run.
+
+	2) To generate a specific set of numbers, place a list of white-space-separated numbers into a text file
+		and type "--list" followed by the filename. One has been provided, called "list.txt"
+
+The flags "-v" and "--verbose" are optional, and allow the user to print out the sorted vector. When used at higher
+	amounts, the execution time is exacerbated terribly.
+
+To remove all object files and the executable, type "make clean" in the command line.
+
+graphs
+------
+For the graphs script to work correctly, the sort executible must be made first. This can be created by
+	typing "make sort" into the command line. Otherwise, the python interpreter will complain that the
+	sort executible does not exist.
+
+If the sort executible has been compiled, then typing "make graphs" in the command line will execute
+	the code in graphs.py. This runs each sort at each of the specified input sizes--10, 50, 100,
+	500, 1000, 5000, 10000, 50000, 100000, 500000, and 1000000--and records the time it takes to
+	complete each, before sending all inputs and their running times into a graphing object provided
+	by matplotlib.
