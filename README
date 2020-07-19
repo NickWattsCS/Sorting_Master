@@ -1,6 +1,8 @@
 Nicholas Watts
-Latest Version release: March 9, 2020
+Latest Version release: July 18, 2020
 
+NOTE: This makefile has not been fully updated since the latest commit, so this information is not accurate. 
+I will update the makefile shortly.
 
 This document explains how to use the C++ program "sort", and the python script "graphs".
 
